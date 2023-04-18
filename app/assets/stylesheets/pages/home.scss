@@ -1,0 +1,19 @@
+
+
+.temp_banner {
+  background-image: url("https://images.unsplash.com/photo-1502773860571-211a597d6e4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  color: azure;
+  justify-content: end;
+  align-items: center;
+  font-size: 86px;
+  padding-right: 30px;
+  text-transform: lowercase;
+  font-style: italic;
+  text-shadow: 4px 4px black;
+}
