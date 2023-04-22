@@ -1,17 +1,9 @@
-<div class="container-fluid m-0 p-0">
-  <h1 class="temp_banner">Coming soon...</h1>
-</div>
 
-<%= render 'shared/cards_sample' %>
-
-
-
-<%= @testAlbum.each do |album| %>
+<%= @albums.each do |album| %>
   <div class="album">
     <h2><%= album['title'] %></h2>
     <p><%= album['artist'] %></p>
     <p><%= album['genre'] %></p>
-    <p><%= album['desc'] %></p>
     <p><%= album['year'] %></p>
     <p><%= album['price'] %></p>
     <img src="<%= album['image_url'] %>">
