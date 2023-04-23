@@ -4,16 +4,4 @@
 
 <%= render 'shared/cards_sample' %>
 
-
-
-<%= @testAlbum.each do |album| %>
-  <div class="album">
-    <h2><%= album['title'] %></h2>
-    <p><%= album['artist'] %></p>
-    <p><%= album['genre'] %></p>
-    <p><%= album['desc'] %></p>
-    <p><%= album['year'] %></p>
-    <p><%= album['price'] %></p>
-    <img src="<%= album['image_url'] %>">
-  </div>
-<% end %>
+<%= render 'albums/index' %>

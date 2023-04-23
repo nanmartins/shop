@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
+
   def home
-    @testAlbum = Album.all
+    @albums = Album.all
   end
+
 end
