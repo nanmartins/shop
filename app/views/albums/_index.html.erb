@@ -1,22 +1,34 @@
 
-<h1>Albums:</h1>
 
-<% if @albums.any? %>
-  <% @albums.each do |album| %>
-    <div class="album border">
-      <h2><%= album.title %></h2>
-      <p><%= album.artist %></p>
-      <p><%= album.genre %></p>
-      <p><%= album.desc %></p>
-      <p><%= album.year %></p>
-      <p><%= album.price %></p>
-      <%= cl_image_tag album.photo.key, height: 700, width: 500, crop: :fill %>
-      <%= button_to "delete", album_path(album), method: :delete, data: { confirm: "Are you sure you want to remove #{album.title}?"}, class: 'text-white bg-dark' %>
-      <%= button_to "Edit", edit_album_path(album), method: :get, class: 'text-white bg-dark' %>
-    </div>
+
+<div class="albums-index d-flex justify-content-between mx-5 my-3">
+  <h2>Albums</h2>
+  <%= link_to "New Album", new_album_path, class: "btn btn-flat bg-dark text-white" %>
+</div>
+
+<div class="row gap-2 d-flex justify-content-center">
+  <% if @albums.any? %>
+    <% @albums.each do |album| %>
+      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-4">
+
+        <div class="card">
+          <%= cl_image_tag album.photo.key, class: "card-img-top", width: 300, crop: :fill %>
+          <div class="card-body">
+            <h5 class="card-title"><%= album.title %></h5>
+            <p class="card-text"><%= album.artist %></p>
+            <p class="card-text"><%= album.genre %></p>
+            <p class="card-text"><%= album.year %></p>
+            <p class="card-text">£<%= album.price %>0</p>
+            <div class="d-flex justify-content-end gap-1">
+              <%= button_to "Edit", edit_album_path(album), method: :get, class: 'text-white bg-dark rounded' %>
+              <%= button_to "delete", album_path(album), method: :delete, data: { confirm: "Are you sure you want to remove #{album.title}?"}, class: 'text-white bg-dark rounded' %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
+  <% else %>
+    <h6>No albums to show.</h6>
   <% end %>
-<% else %>
-  <h5>No albums to show</h5>
-<% end %>
-
-<%= link_to "New Album", new_album_path, class: "btn btn-flat bg-dark text-white m-4" %>
+</div>
