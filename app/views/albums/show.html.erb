@@ -1,20 +1,23 @@
 
-<div class="d-flex justify-content-center mt-5">
-  <div class="card col-6">
+<div class="container mt-5">
+  <div class="col-6">
     <%= cl_image_tag @album.photo.key, class: "card-img-top", width: 300, crop: :fill %>
-    <div class="card-body">
-      <h5 class="card-title"><%= @album.title %></h5>
-      <p class="card-text"><%= @album.artist %></p>
-      <p class="card-text"><%= @album.genre %></p>
-      <p class="card-text"><%= @album.year %></p>
-      <p class="card-text">£<%= @album.price %>0</p>
-      <div class="d-flex justify-content-end gap-1">
+  </div>
+  <div class="col-6">
+    <h5 class="card-title"><%= @album.title %></h5>
+    <p class="card-text"><%= @album.artist %></p>
+    <p class="card-text"><%= @album.genre %></p>
+    <p class="card-text"><%= @album.year %></p>
+    <p class="card-text"><%= @album.desc %></p>
+    <div class="d-flex justify-content-between align-items-end gap-1">
+      <div class="album-show-links d-flex gap-2">
         <%= button_to "Edit", edit_album_path(@album), method: :get, class: 'text-white bg-dark rounded' %>
         <%= button_to "delete", album_path(@album), method: :delete, data: { confirm: "Are you sure you want to remove #{@album.title}?"}, class: 'text-white bg-dark rounded' %>
       </div>
+      <p class="card-text">£<%= @album.price %>0</p>
     </div>
   </div>
+
 </div>
 
-
-<%= link_to 'Home', root_path, class: "btn btn-flat text-white bg-dark" %>
+<%= link_to 'Home', root_path, class: "btn btn-flat text-white bg-dark m-5" %>
