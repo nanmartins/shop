@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = set_album
+
   end
 
   def new
@@ -20,7 +20,7 @@ class AlbumsController < ApplicationController
     @album = Album.create!(album_params)
 
     if @album.save
-      redirect_to root_path
+      redirect_to album_path
       # Need to work on album/show and change this path
     else
       render :new
@@ -29,7 +29,7 @@ class AlbumsController < ApplicationController
 
   def update
     if @album.update(album_params)
-      redirect_to root_path
+      redirect_to album_path
       # Need to work on album/show and change this path
 
     else

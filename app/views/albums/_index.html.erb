@@ -7,24 +7,31 @@
 </div>
 
 <div class="row gap-2 d-flex justify-content-center">
+
   <% if @albums.any? %>
     <% @albums.each do |album| %>
+
       <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-4">
 
-        <div class="card">
-          <%= cl_image_tag album.photo.key, class: "card-img-top", width: 300, crop: :fill %>
-          <div class="card-body">
-            <h5 class="card-title"><%= album.title %></h5>
-            <p class="card-text"><%= album.artist %></p>
-            <p class="card-text"><%= album.genre %></p>
-            <p class="card-text"><%= album.year %></p>
-            <p class="card-text">£<%= album.price %>0</p>
-            <div class="d-flex justify-content-end gap-1">
-              <%= button_to "Edit", edit_album_path(album), method: :get, class: 'text-white bg-dark rounded' %>
-              <%= button_to "delete", album_path(album), method: :delete, data: { confirm: "Are you sure you want to remove #{album.title}?"}, class: 'text-white bg-dark rounded' %>
+        <%= link_to album_path(album), class: "text-decoration-none" do %>
+
+          <div class="card">
+            <%= cl_image_tag album.photo.key, class: "card-img-top", width: 300, crop: :fill %>
+            <div class="card-body">
+              <h5 class="text-decoration-none"><%= album.title %></h5>
+              <p class="text-decoration-none"><%= album.artist %></p>
+              <p class="text-decoration-none"><%= album.genre %></p>
+              <p class="text-decoration-none"><%= album.year %></p>
+              <p class="text-decoration-none">£<%= album.price %>0</p>
+
+              <div class="d-flex justify-content-end gap-1">
+                <%= button_to "Edit", edit_album_path(album), method: :get, class: 'text-white bg-dark rounded' %>
+                <%= button_to "delete", album_path(album), method: :delete, data: { confirm: "Are you sure you want to remove #{album.title}?"}, class: 'text-white bg-dark rounded' %>
+              </div>
             </div>
           </div>
-        </div>
+
+        <% end %>
 
       </div>
     <% end %>

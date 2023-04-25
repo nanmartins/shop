@@ -23,7 +23,7 @@ require 'dotenv/load'
 RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'])
 
 # Encontre o artista pelo seu ID
-artist = RSpotify::Artist.find('6mdiAmATAx73kdxrNrnlao')
+artist = RSpotify::Artist.find('Coldplay')
 
 # Imprima o nome do artista
 puts "Nome do artista: #{artist.name}"
